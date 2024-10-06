@@ -23,6 +23,13 @@ pred_label, raw_prob, _, _ = scorer.score(docs=[doc, doc], claims=[claim_1, clai
 print(pred_label)  # Expected output: [1, 0]
 print(raw_prob)    # Probabilities indicating confidence in predictions
 
+#Using deberta V3
+# Using MiniCheck with DeBERTa-v3-large model
+scorer = MiniCheck(model_name='deberta-v3-large', cache_dir='./ckpts')
+pred_label, raw_prob, _, _ = scorer.score(docs=[doc]*4, claims=[claim_1, claim_2, claim_3, claim_4])
+
+print(pred_label)  # Expected output: [1, 1, 1, 0]
+print(raw_prob)    # Probabilities indicating confidence in predictions
 
 
 
